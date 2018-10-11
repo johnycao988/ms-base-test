@@ -9,11 +9,12 @@ import com.cs.cloud.message.api.MessageRequest;
 import com.cs.product.eloan.EloanService;
 import com.cs.product.eloan.base.vo.message.MsgRequest;
 import com.cs.product.eloan.base.vo.message.MsgResponse;
+import com.cs.product.eloan.consts.SC;
 import com.cs.product.eloan.domain.service.GetCataProcess;
 
-public class GetCataService extends EloanService {
+public class CatalogService extends EloanService {
 
-	public GetCataService(MessageRequest req, Properties prop) {
+	public CatalogService(MessageRequest req, Properties prop) {
 		super(req, prop);
 	}
 
@@ -26,8 +27,12 @@ public class GetCataService extends EloanService {
 	@Override
 	protected MsgResponse<Map<String, Object>, Object> callServiceList(MessageHeadService service,
 			MsgRequest<Map<String, Object>, List<Map<String, Object>>> msgRequest) {
-		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	protected String getServiceId() {
+		return SC.SID_CATALOG;
 	}
 
 

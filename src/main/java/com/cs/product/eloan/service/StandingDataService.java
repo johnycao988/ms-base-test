@@ -27,12 +27,17 @@ public class StandingDataService extends EloanService {
 	@Override
 	protected MsgResponse<Map<String, Object>, Object> callServiceList(MessageHeadService service,
 			MsgRequest<Map<String, Object>, List<Map<String, Object>>> msgRequest) {
-		if(SC.AP_STANDING_ADD.equals(getServiceType(service))) {
+		if(SC.ST_STANDING_ADD.equals(getServiceType(service))) {
 			return new StandingDataProcess().addStandingData(msgRequest);
-		}else if(SC.AP_STANDING_UPDATE.equals(getServiceType(service))) {
+		}else if(SC.ST_STANDING_UPDATE.equals(getServiceType(service))) {
 			return new StandingDataProcess().updateStandingData(msgRequest);
 		}else {
 			return new StandingDataProcess().deleteStandingData(msgRequest);
 		}
+	}
+
+	@Override
+	protected String getServiceId() {
+		return SC.SID_STANDING;
 	}
 }

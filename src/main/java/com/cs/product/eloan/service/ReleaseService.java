@@ -9,19 +9,18 @@ import com.cs.cloud.message.api.MessageRequest;
 import com.cs.product.eloan.EloanService;
 import com.cs.product.eloan.base.vo.message.MsgRequest;
 import com.cs.product.eloan.base.vo.message.MsgResponse;
-import com.cs.product.eloan.domain.service.GetAuthInfoProcess;
+import com.cs.product.eloan.consts.SC;
 
-public class GetAuthInfoService extends EloanService {
+public class ReleaseService extends EloanService{
 
-	public GetAuthInfoService(MessageRequest req, Properties prop) {
+	public ReleaseService(MessageRequest req, Properties prop) {
 		super(req, prop);
 	}
-
 
 	@Override
 	protected MsgResponse<Map<String, Object>, Object> callServiceMap(MessageHeadService service,
 			MsgRequest<Map<String, Object>, Map<String, Object>> msgRequest) {
-		return new GetAuthInfoProcess().processGetAuthInfo(msgRequest);
+		return null;
 	}
 
 	@Override
@@ -30,6 +29,9 @@ public class GetAuthInfoService extends EloanService {
 		return null;
 	}
 
-
+	@Override
+	protected String getServiceId() {
+		return SC.SID_RELEASE;
+	}
 
 }

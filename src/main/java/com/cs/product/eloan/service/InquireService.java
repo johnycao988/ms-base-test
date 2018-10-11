@@ -10,11 +10,10 @@ import com.cs.product.eloan.EloanService;
 import com.cs.product.eloan.base.vo.message.MsgRequest;
 import com.cs.product.eloan.base.vo.message.MsgResponse;
 import com.cs.product.eloan.consts.SC;
-import com.cs.product.eloan.domain.service.AccrualProcess;
 
-public class AccrualService extends EloanService {
+public class InquireService extends EloanService {
 
-	public AccrualService(MessageRequest req, Properties prop) {
+	public InquireService(MessageRequest req, Properties prop) {
 		super(req, prop);
 	}
 
@@ -27,14 +26,12 @@ public class AccrualService extends EloanService {
 	@Override
 	protected MsgResponse<Map<String, Object>, Object> callServiceList(MessageHeadService service,
 			MsgRequest<Map<String, Object>, List<Map<String, Object>>> msgRequest) {
-		if(SC.AP_ACC_OEMT.equals(getServiceType(service))) {
-			return new AccrualProcess().processOneEventMutliTrx(msgRequest);
-		}else if (SC.AP_ACC_OTME.equals(getServiceType(service))) {
-			 return new AccrualProcess().processOneTrxMutliEvent(msgRequest);
-		}
 		return null;
 	}
 
-	
+	@Override
+	protected String getServiceId() {
+		return SC.SID_INQUIRE;
+	}
 
 }

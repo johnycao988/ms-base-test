@@ -10,18 +10,19 @@ import com.cs.product.eloan.EloanService;
 import com.cs.product.eloan.base.vo.message.MsgRequest;
 import com.cs.product.eloan.base.vo.message.MsgResponse;
 import com.cs.product.eloan.consts.SC;
-import com.cs.product.eloan.domain.service.GetUnitInfoProcess;
+import com.cs.product.eloan.domain.service.GetAuthInfoProcess;
 
-public class GetUnitInfoService extends EloanService {
+public class AuthInfoService extends EloanService {
 
-	public GetUnitInfoService(MessageRequest req, Properties prop) {
+	public AuthInfoService(MessageRequest req, Properties prop) {
 		super(req, prop);
 	}
+
 
 	@Override
 	protected MsgResponse<Map<String, Object>, Object> callServiceMap(MessageHeadService service,
 			MsgRequest<Map<String, Object>, Map<String, Object>> msgRequest) {
-		return new GetUnitInfoProcess().processGetUnitInfo(msgRequest);
+		return new GetAuthInfoProcess().processGetAuthInfo(msgRequest);
 	}
 
 	@Override
@@ -30,11 +31,12 @@ public class GetUnitInfoService extends EloanService {
 		return null;
 	}
 
+
 	@Override
 	protected String getServiceId() {
-		return SC.SID_UNITINFO;
+		return SC.SID_AUTHINFO;
 	}
 
 
-	
+
 }

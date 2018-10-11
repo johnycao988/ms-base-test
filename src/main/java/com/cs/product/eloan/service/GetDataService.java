@@ -9,6 +9,7 @@ import com.cs.cloud.message.api.MessageRequest;
 import com.cs.product.eloan.EloanService;
 import com.cs.product.eloan.base.vo.message.MsgRequest;
 import com.cs.product.eloan.base.vo.message.MsgResponse;
+import com.cs.product.eloan.consts.SC;
 import com.cs.product.eloan.domain.service.GetDataProcess;
 
 public  class GetDataService extends EloanService {
@@ -27,6 +28,11 @@ public  class GetDataService extends EloanService {
 	protected MsgResponse<Map<String, Object>, Object> callServiceList(MessageHeadService service,
 			MsgRequest<Map<String, Object>, List<Map<String, Object>>> msgRequest) {
 		return null;
+	}
+
+	@Override
+	protected String getServiceId() {
+		return SC.SID_GETDATA;
 	}
 
 }

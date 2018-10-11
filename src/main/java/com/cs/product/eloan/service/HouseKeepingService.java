@@ -15,16 +15,16 @@ import com.cs.product.eloan.domain.service.component.housekeeping.AmzOnlineAccru
 import com.cs.product.eloan.domain.service.component.housekeeping.InterestAccrual;
 import com.cs.product.eloan.domain.service.component.housekeeping.InterestPosting;
 
-public class HouseKeeping extends EloanService{
+public class HouseKeepingService extends EloanService{
 
-	public HouseKeeping(MessageRequest req, Properties prop) {
+	public HouseKeepingService(MessageRequest req, Properties prop) {
 		super(req, prop);
 	}
 
 	@Override
 	protected MsgResponse<Map<String, Object>, Object> callServiceMap(MessageHeadService service,
 			MsgRequest<Map<String, Object>, Map<String, Object>> msgRequest) {
-		if(SC.AP_HK_ACCRUE.equals(getServiceType(service))) {
+		if(SC.ST_HK_ACCRUE.equals(getServiceType(service))) {
 			return new InterestAccrual().processInterestAccrue(msgRequest);
 		}else {
 			return new InterestPosting().processInterestPosting(msgRequest);
@@ -34,11 +34,16 @@ public class HouseKeeping extends EloanService{
 	@Override
 	protected MsgResponse<Map<String, Object>, Object> callServiceList(MessageHeadService service,
 			MsgRequest<Map<String, Object>, List<Map<String, Object>>> msgRequest) {
-		if(SC.AP_HK_ACCONLINE.equals(getServiceType(service))) {
+		if(SC.ST_HK_ACCONLINE.equals(getServiceType(service))) {
 			return new AccOnlineAccrual().process(msgRequest); 
 		}else {
 			return new AmzOnlineAccrual().process(msgRequest);
 		}
+	}
+
+	@Override
+	protected String getServiceId() {
+		return SC.SID_HOUSEKEEPING;
 	}
 
 }

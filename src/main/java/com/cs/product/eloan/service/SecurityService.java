@@ -17,30 +17,27 @@ public class SecurityService extends EloanService {
 
 	public SecurityService(MessageRequest req, Properties prop) {
 		super(req, prop);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	protected MsgResponse<Map<String, Object>, Object> callServiceMap(MessageHeadService service,
 			MsgRequest<Map<String, Object>, Map<String, Object>> msgRequest) {
-		if(SC.AP_SECURITY_LOGIN.equals(getServiceType(service))) {
+		if(SC.ST_SECURITY_LOGIN.equals(getServiceType(service))) {
 			return new LoginProcess().processLoginEvent(msgRequest);
 		}else {
 			return new LogoutProcess().processLogoutEvent(msgRequest);
-		}
-		
-		
+		}	
 	}
 
 	@Override
 	protected MsgResponse<Map<String, Object>, Object> callServiceList(MessageHeadService service,
 			MsgRequest<Map<String, Object>, List<Map<String, Object>>> msgRequest) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
-
-	
+	@Override
+	protected String getServiceId() {
+		return SC.SID_SECURITY;
+	}
 
 }

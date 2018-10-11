@@ -40,13 +40,10 @@ public abstract class EloanService extends BusinessService {
 	@Override
 	public MessageResponse process() throws BaseAppException, MessageException {
 		MessageResponseBuilder responseBuilder = MessageFactory.getResponseMessageBuilder();
-		// 链式编程
-		// responseBuilder对Response中的head部分里的id和type进行赋值
 		responseBuilder
 				.setBase(responseBuilder.getMessageHeadBaseBuilder().setCorrelationId(this.getReq().getBase().getId())
 						.setType(MessageConstant.MESSAGE_HEAD_BASE_TYPE_RESPONSE).build());
 		List<MessageHeadService> services = this.getReq().getServices();
-//		System.out.println("services:"+services);
 		for (MessageHeadService service : services) {
 			MsgResponse<Map<String, Object>, Object> msgResponse = process(service);
 			MessageResponseBodyServiceBuilder sBuilder = responseBuilder.getMessageResponseBodyServiceBuilder();
@@ -65,7 +62,6 @@ public abstract class EloanService extends BusinessService {
 					.setUserId(this.getReq().getConsumer().getUserId());
 			sBuilder.setResponseData(msgResponse.getBody());
 			responseBuilder.addResponseBodyService(sBuilder.build());
-//			System.out.println("service"+service);
 		}
 		return responseBuilder.build();
 	}
@@ -81,11 +77,6 @@ public abstract class EloanService extends BusinessService {
 		extendHeader.put(EC.INTF_HEAD_USER, consumer.getUserId());
 		extendHeader.put(EC.INTF_HEAD_DATE, new Date(this.getReq().getBase().getTimeStamp()));
 		msgHeader.setExtendHeader(extendHeader);
-		System.out.println("msgHeader1：" + msgHeader.getServiceName());
-		System.out.println("msgHeader2：" + msgHeader.getReferenceNo());
-		System.out.println("msgHeader3：" + msgHeader.getRelationNo());
-		System.out.println("msgHeader4：" + msgHeader.getDateTime());
-		System.out.println("msgHeader5：" + msgHeader.getExtendHeader());
 		return msgHeader;
 
 	}
@@ -99,18 +90,18 @@ public abstract class EloanService extends BusinessService {
 			return SC.SERVICE_TYPE_MAP;
 		} else {
 			switch (service.getProperties().get(SC.SERVICE_TYPE)) {
-				case SC.AP_ACC_OEMT:
-				case SC.AP_ACC_OTME:
-				case SC.AP_AMZ_OEMT:
-				case SC.AP_AMZ_OTME:
-				case SC.AP_HK_ACCONLINE:
-				case SC.AP_HK_AMZONLINE:
-				case SC.AP_STANDING_ADD:
-				case SC.AP_STANDING_UPDATE:
-				case SC.AP_STANDING_DELETE:
+				case SC.ST_ACC_OEMT:
+				case SC.ST_ACC_OTME:
+				case SC.ST_AMZ_OEMT:
+				case SC.ST_AMZ_OTME:
+				case SC.ST_HK_ACCONLINE:
+				case SC.ST_HK_AMZONLINE:
+				case SC.ST_STANDING_ADD:
+				case SC.ST_STANDING_UPDATE:
+				case SC.ST_STANDING_DELETE:
 					return SC.SERVICE_TYPE_LIST;
-				case SC.AP_SECURITY_LOGIN:
-				case SC.AP_SECURITY_LOGOUT:
+				case SC.ST_SECURITY_LOGIN:
+				case SC.ST_SECURITY_LOGOUT:
 					return SC.SERVICE_TYPE_MAP;
 				default:
 					return SC.SERVICE_TYPE_ERROR;
@@ -150,6 +141,7 @@ public abstract class EloanService extends BusinessService {
 
 	protected abstract MsgResponse<Map<String, Object>, Object> callServiceList(MessageHeadService service,
 			MsgRequest<Map<String, Object>, List<Map<String, Object>>> msgRequest);
+	protected abstract String getServiceId();
 
 	protected Logger getLogger() {
 		return EloanService.logger;
