@@ -10,14 +10,14 @@ public class SC {
 	
 	public static final String ST_HK_ACCONLINE="hk-accOnline";
 	public static final String ST_HK_AMZONLINE="hk-amzOnline";
-	public static final String ST_HK_ACCRUE="hk-accrue";
+	public static final String ST_HK_ACCRUAL="hk-accrual";
 	public static final String ST_HK_POSTING="hk-posting";
 	
 	public static final String ST_REL_TRANSATION="release-transation";
-	public static final String ST_REL_STANDDATA="release-standingdata";
+	public static final String ST_REL_STANDINGDATA="release-standingdata";
 	
 	public static final String ST_INQ_TRANSATION="inquire-transation";
-	public static final String ST_INQ_STANDDATA="inquire-standingdata";
+	public static final String ST_INQ_STANDINGDATA="inquire-standingdata";
 	
 	public static final String ST_STANDING_ADD="standing-add";
 	public static final String ST_STANDING_UPDATE="standing-update";
@@ -38,11 +38,6 @@ public class SC {
 	public static final String SID_UNITINFO="UNITINFO";
 	public static final String SID_SECURITY="SECURITY";
 	
-	
-	
-	public static final String AP_UNITINFO="unitinfo";
-	public static final String AP_TRXDATA="trxdata";
-	public static final String AP_CATALOG="catalog";
 	public static final Integer SERVICE_TYPE_MAP=0;
 	public static final Integer SERVICE_TYPE_LIST=1;
 	public static final Integer SERVICE_TYPE_ERROR=2;

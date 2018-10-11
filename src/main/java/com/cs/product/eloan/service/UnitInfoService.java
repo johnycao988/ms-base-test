@@ -12,9 +12,9 @@ import com.cs.product.eloan.base.vo.message.MsgResponse;
 import com.cs.product.eloan.consts.SC;
 import com.cs.product.eloan.domain.service.GetUnitInfoProcess;
 
-public class GetUnitInfoService extends EloanService {
+public class UnitInfoService extends EloanService {
 
-	public GetUnitInfoService(MessageRequest req, Properties prop) {
+	public UnitInfoService(MessageRequest req, Properties prop) {
 		super(req, prop);
 	}
 

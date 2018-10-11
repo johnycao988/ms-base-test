@@ -24,7 +24,7 @@ public class HouseKeepingService extends EloanService{
 	@Override
 	protected MsgResponse<Map<String, Object>, Object> callServiceMap(MessageHeadService service,
 			MsgRequest<Map<String, Object>, Map<String, Object>> msgRequest) {
-		if(SC.ST_HK_ACCRUE.equals(getServiceType(service))) {
+		if(SC.ST_HK_ACCRUAL.equals(getServiceType(service))) {
 			return new InterestAccrual().processInterestAccrue(msgRequest);
 		}else {
 			return new InterestPosting().processInterestPosting(msgRequest);
