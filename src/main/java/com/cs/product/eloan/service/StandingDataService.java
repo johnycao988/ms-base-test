@@ -38,6 +38,6 @@ public class StandingDataService extends EloanService {
 
 	@Override
 	protected String getServiceId() {
-		return SC.SID_STANDING;
+		return SC.SID_STANDINGDATA;
 	}
 }

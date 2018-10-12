@@ -41,7 +41,7 @@ public class TransactionService extends EloanService {
 
 	@Override
 	protected String getServiceId() {
-		return SC.SID_TRANSATION;
+		return SC.SID_TRANSACTION;
 	}
 
 }

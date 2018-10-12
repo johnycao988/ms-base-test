@@ -13,10 +13,10 @@ public class SC {
 	public static final String ST_HK_ACCRUAL="hk-accrual";
 	public static final String ST_HK_POSTING="hk-posting";
 	
-	public static final String ST_REL_TRANSATION="release-transation";
+	public static final String ST_REL_TRANSACTION="release-transaction";
 	public static final String ST_REL_STANDINGDATA="release-standingdata";
 	
-	public static final String ST_INQ_TRANSATION="inquire-transation";
+	public static final String ST_INQ_TRANSACTION="inquire-transaction";
 	public static final String ST_INQ_STANDINGDATA="inquire-standingdata";
 	
 	public static final String ST_STANDING_ADD="standing-add";
@@ -26,11 +26,11 @@ public class SC {
 	public static final String ST_SECURITY_LOGIN="security-login";
 	public static final String ST_SECURITY_LOGOUT="security-logout";
 	
-	public static final String SID_TRANSATION="TRANSATION";
+	public static final String SID_TRANSACTION="TRANSACTION";
 	public static final String SID_HOUSEKEEPING="HOUSEKEEPING";
 	public static final String SID_RELEASE="RELEASE";
 	public static final String SID_INQUIRE="INQUIRE";
-	public static final String SID_STANDING="STANDING";
+	public static final String SID_STANDINGDATA="STANDINGDATA";
 	public static final String SID_CATALOG="CATALOG";
 	public static final String SID_GETDATA="GETDATA";
 	public static final String SID_TRXDATA="TRXDATA";
