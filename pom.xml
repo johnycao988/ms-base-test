@@ -11,14 +11,6 @@
 			<version>0.0.1-SNAPSHOT</version>
 			<type>war</type>
 		</dependency>
-		<dependency>
-			<groupId>com.cs.cloud</groupId>
-			<artifactId>MSBaseApplication</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-			<type>jar</type>
-			<scope>compile</scope>
-			<classifier>api</classifier>
-		</dependency>
   		<dependency>
 			<groupId>com.cs</groupId>
 			<artifactId>product-eloan</artifactId>

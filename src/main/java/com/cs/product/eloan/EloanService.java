@@ -76,6 +76,7 @@ public abstract class EloanService extends BusinessService {
 		Map<String, Object> extendHeader = new HashMap<String, Object>();
 		extendHeader.put(EC.INTF_HEAD_USER, consumer.getUserId());
 		extendHeader.put(EC.INTF_HEAD_DATE, new Date(this.getReq().getBase().getTimeStamp()));
+		extendHeader.put(EC.INTF_HEAD_UNIT, this.getReq().getTransaction().getUnitCode());
 		msgHeader.setExtendHeader(extendHeader);
 		return msgHeader;
 

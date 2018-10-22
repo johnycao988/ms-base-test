@@ -26,17 +26,17 @@ public class SC {
 	public static final String ST_SECURITY_LOGIN="security-login";
 	public static final String ST_SECURITY_LOGOUT="security-logout";
 	
-	public static final String SID_TRANSACTION="TRANSACTION";
-	public static final String SID_HOUSEKEEPING="HOUSEKEEPING";
-	public static final String SID_RELEASE="RELEASE";
-	public static final String SID_INQUIRE="INQUIRE";
-	public static final String SID_STANDINGDATA="STANDINGDATA";
-	public static final String SID_CATALOG="CATALOG";
-	public static final String SID_GETDATA="GETDATA";
-	public static final String SID_TRXDATA="TRXDATA";
-	public static final String SID_AUTHINFO="AUTHINFO";
-	public static final String SID_UNITINFO="UNITINFO";
-	public static final String SID_SECURITY="SECURITY";
+	public static final String SID_TRANSACTION="eLOAN-TRANSACTION";
+	public static final String SID_HOUSEKEEPING="eLOAN-HOUSEKEEPING";
+	public static final String SID_RELEASE="eLOAN-RELEASE";
+	public static final String SID_INQUIRE="eLOAN-INQUIRE";
+	public static final String SID_STANDINGDATA="eLOAN-STANDINGDATA";
+	public static final String SID_CATALOG="eLOAN-CATALOG";
+	public static final String SID_GETDATA="eLOAN-GETDATA";
+	public static final String SID_TRXDATA="eLOAN-TRXDATA";
+	public static final String SID_AUTHINFO="eLOAN-AUTHINFO";
+	public static final String SID_UNITINFO="eLOAN-UNITINFO";
+	public static final String SID_SECURITY="eLOAN-SECURITY";
 	
 	public static final Integer SERVICE_TYPE_MAP=0;
 	public static final Integer SERVICE_TYPE_LIST=1;

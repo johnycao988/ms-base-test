@@ -9,9 +9,12 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
+import com.cs.config.client.ConfigLogException;
+import com.cs.config.client.ConfigureClient;
+import com.cs.log.common.logbean.LogException;
+import com.cs.log.logs.LogInfoMgr;
 import com.cs.log.logs.bean.ServiceLogKey;
 import com.cs.product.eloan.base.consts.LC;
-import com.cs.product.eloan.base.dao.DSMgr;
 
 @WebFilter("/*")
 public class EloanFilter implements Filter {
@@ -31,7 +34,11 @@ public class EloanFilter implements Filter {
 	public void init(FilterConfig fConfig) throws ServletException {
 		ServiceLogKey logKey = new ServiceLogKey();
 		logKey.setServiceName("eLoan");
-		DSMgr.initConfigure(LC.getSYS(logKey));
+		try {
+			LogInfoMgr.initByDoc("", ConfigureClient.getFileAsDom("conf/loginfo_en.xml"));
+		} catch (LogException e) {
+			LC.getSYS(logKey).getLogger().write(logKey, e);
+		}
 	}
 
 }

@@ -1,0 +1,119 @@
+---
+app:
+  base: #The Base Information of this MS
+    name: eloanMS
+    version: v01
+    applicationId: eloan
+    secret: secret
+  env:
+    KEY_1: VALUE_1
+    KEY_2: VALUE_2	
+  webMessageFilter:
+    - id: filter1
+      implementClass: com.cs.baseapp.api.filter.DefaultMsgProcWebFilter #com.cs.baseapp.api.filter.BaseMessageFilter
+      desc: eloan filter 1
+      urlPattern: /*
+      parameters:
+        KEY_1: value1
+        KEY_2: value2
+  messageBroker:
+    sender:
+    - id: rest-sender
+      desc: rest sender
+      implementClass: com.cs.baseapp.api.messagebroker.entity.DefaultRestSender #com.cs.baseapp.api.messagebroker.MessageSender
+      poolSize: -1
+      parameters:
+        URI: "http://10.39.101.28:8080/MSStandingDataWebApplication/"
+        METHOD: POST
+    receiver: 
+    listener: 
+    services:
+      local:
+      - id: eLOAN-TRANSACTION
+        implementClass: com.cs.product.eloan.service.TransactionService #com.cs.product.eloan.EloanService 
+        parameters:
+          KEY_1: value1
+          KEY_2: value2    
+      - id: eLOAN-HOUSEKEEPING
+        implementClass: com.cs.product.eloan.service.HouseKeepingService #com.cs.product.eloan.EloanService 
+        parameters:
+          KEY_1: value1
+          KEY_2: value2
+      - id: eLOAN-RELEASE
+        implementClass: com.cs.product.eloan.service.ReleaseService #com.cs.product.eloan.EloanService 
+        parameters:
+          KEY_1: value1
+          KEY_2: value2    
+      - id: eLOAN-INQUIRE
+        implementClass: com.cs.product.eloan.service.InquireService #com.cs.product.eloan.EloanService 
+        parameters:
+          KEY_1: value1
+          KEY_2: value2    
+      - id: eLOAN-STANDINGDATA
+        implementClass: com.cs.product.eloan.service.StandingDataService #com.cs.product.eloan.EloanService 
+        parameters:
+          KEY_1: value1   
+          KEY_2: value2              
+      - id: eLOAN-CATALOG
+        implementClass: com.cs.product.eloan.service.CatalogService #com.cs.product.eloan.EloanService 
+        parameters:
+          KEY_1: value1
+          KEY_2: value2
+      - id: eLOAN-GETDATA
+        implementClass: com.cs.product.eloan.service.GetDataService #com.cs.product.eloan.EloanService 
+        parameters:
+          KEY_1: value1
+          KEY_2: value2
+      - id: eLOAN-TRXDATA
+        implementClass: com.cs.product.eloan.service.TrxDataService #com.cs.product.eloan.EloanService 
+        parameters:
+          KEY_1: value1
+          KEY_2: value2    
+      - id: eLOAN-AUTHINFO
+        implementClass: com.cs.product.eloan.service.AuthInfoService #com.cs.product.eloan.EloanService 
+        parameters:
+          KEY_1: value1
+          KEY_2: value2
+      - id: eLOAN-UNITINFO
+        implementClass: com.cs.product.eloan.service.UnitInfoService #com.cs.product.eloan.EloanService 
+        parameters:
+          KEY_1: value1
+          KEY_2: value2
+      - id: eLOAN-SECURITY
+        implementClass: com.cs.product.eloan.service.SecurityService #com.cs.product.eloan.EloanService 
+        parameters:
+          KEY_1: value1
+          KEY_2: value2
+      remote: 
+      - id: StandingData-COUNTRY
+        tranformClass: com.cs.baseapp.api.messagebroker.entity.DefaultTranslationMessage #com.cs.baseapp.api.messagebroker.TranslationMessage
+        senderId: rest-sender
+        receiverId: 
+        msgStore: false #true & false
+        parameters:
+         K1: V1
+      - id: StandingData-CURRENCY
+        tranformClass: com.cs.baseapp.api.messagebroker.entity.DefaultTranslationMessage #com.cs.baseapp.api.messagebroker.TranslationMessage
+        senderId: rest-sender
+        receiverId: 
+        msgStore: false #true & false
+        parameters:
+         K1: V1
+      - id: StandingData-HOLIDAY
+        tranformClass: com.cs.baseapp.api.messagebroker.entity.DefaultTranslationMessage #com.cs.baseapp.api.messagebroker.TranslationMessage
+        senderId: rest-sender
+        receiverId: 
+        msgStore: false #true & false
+        parameters:
+         K1: V1
+      - id: StandingData-EXCHANRATE
+        tranformClass: com.cs.baseapp.api.messagebroker.entity.DefaultTranslationMessage #com.cs.baseapp.api.messagebroker.TranslationMessage
+        senderId: rest-sender
+        receiverId: 
+        msgStore: false #true & false
+        parameters:
+         K1: V1
+    repository: 
+     parameters:
+       K1: V1
+       K2: V2
