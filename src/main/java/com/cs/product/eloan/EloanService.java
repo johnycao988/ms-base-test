@@ -59,7 +59,7 @@ public abstract class EloanService extends BusinessService {
 			}
 			sBuilder.setApplicationId(service.getApplicationId()).setSecret(this.getReq().getConsumer().getSecret())
 					.setServiceStatus(ssBuilder.build()).setToken(this.getReq().getConsumer().getToken())
-					.setUserId(this.getReq().getConsumer().getUserId());
+					.setUserName(this.getReq().getConsumer().getUserName());
 			sBuilder.setResponseData(msgResponse.getBody());
 			responseBuilder.addResponseBodyService(sBuilder.build());
 		}
@@ -74,7 +74,7 @@ public abstract class EloanService extends BusinessService {
 		msgHeader.setRelationNo(this.getReq().getBase().getCorrelationId());
 		msgHeader.setDateTime(this.getReq().getBase().getTimeStamp());
 		Map<String, Object> extendHeader = new HashMap<String, Object>();
-		extendHeader.put(EC.INTF_HEAD_USER, consumer.getUserId());
+		extendHeader.put(EC.INTF_HEAD_USER, consumer.getUserName());
 		extendHeader.put(EC.INTF_HEAD_DATE, new Date(this.getReq().getBase().getTimeStamp()));
 		extendHeader.put(EC.INTF_HEAD_UNIT, this.getReq().getTransaction().getUnitCode());
 		msgHeader.setExtendHeader(extendHeader);
