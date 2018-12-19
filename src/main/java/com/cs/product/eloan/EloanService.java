@@ -97,9 +97,6 @@ public abstract class EloanService extends BusinessService {
 				case SC.ST_AMZ_OTME:
 				case SC.ST_HK_ACCONLINE:
 				case SC.ST_HK_AMZONLINE:
-				case SC.ST_STANDING_ADD:
-				case SC.ST_STANDING_UPDATE:
-				case SC.ST_STANDING_DELETE:
 					return SC.SERVICE_TYPE_LIST;
 				case SC.ST_SECURITY_LOGIN:
 				case SC.ST_SECURITY_LOGOUT:

@@ -10,7 +10,7 @@ import com.cs.product.eloan.EloanService;
 import com.cs.product.eloan.base.vo.message.MsgRequest;
 import com.cs.product.eloan.base.vo.message.MsgResponse;
 import com.cs.product.eloan.consts.SC;
-import com.cs.product.eloan.domain.service.StandingDataProcess;
+import com.cs.product.eloan.domain.service.component.standing.StandingDataProcess;
 
 public class StandingDataService extends EloanService {
 
@@ -21,19 +21,13 @@ public class StandingDataService extends EloanService {
 	@Override
 	protected MsgResponse<Map<String, Object>, Object> callServiceMap(MessageHeadService service,
 			MsgRequest<Map<String, Object>, Map<String, Object>> msgRequest) {
-		return null;
+		return new StandingDataProcess().process(msgRequest);
 	}
 
 	@Override
 	protected MsgResponse<Map<String, Object>, Object> callServiceList(MessageHeadService service,
 			MsgRequest<Map<String, Object>, List<Map<String, Object>>> msgRequest) {
-		if(SC.ST_STANDING_ADD.equals(getServiceType(service))) {
-			return new StandingDataProcess().addStandingData(msgRequest);
-		}else if(SC.ST_STANDING_UPDATE.equals(getServiceType(service))) {
-			return new StandingDataProcess().updateStandingData(msgRequest);
-		}else {
-			return new StandingDataProcess().deleteStandingData(msgRequest);
-		}
+		return null;
 	}
 
 	@Override
